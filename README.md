@@ -30,13 +30,13 @@ C++ library for interfacing with iRobot's Create 1 and 2 as well as most models 
 
 ## Dependencies ##
 
-* [Boost System Library](http://www.boost.org/doc/libs/1_59_0/libs/system/doc/index.html)
+* Boost 1.70 or newer (Boost.System is header-only)
 * [Boost Thread Library](http://www.boost.org/doc/libs/1_59_0/doc/html/thread.html)
 * [Optional] [googletest](https://github.com/google/googletest)
 
 ### Install ###
 
-        sudo apt-get install build-essential cmake libboost-system-dev libboost-thread-dev
+        sudo apt-get install build-essential cmake libboost-dev libboost-thread-dev
 
         # Optionally, install gtest for building unit tests
         sudo apt-get install libgtest-dev

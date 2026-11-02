@@ -5,7 +5,7 @@
 #    target_link_libraries(... ${libcreate_LIBRARIES})
 #
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 project(libcreate)
 
 add_compile_options(-Wall -Wextra -Wpedantic)
@@ -14,7 +14,8 @@ set(PACKAGE_VERSION 3.0.0)
 
 option(LIBCREATE_BUILD_TESTS "Enable the build of tests." ON)
 
-find_package(Boost REQUIRED COMPONENTS system thread)
+# Boost.System is header-only; recent Boost releases no longer ship its library.
+find_package(Boost 1.70 REQUIRED CONFIG COMPONENTS thread)
 find_package(Threads REQUIRED)
 
 # Default to C++11

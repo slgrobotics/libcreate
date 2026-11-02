@@ -51,7 +51,7 @@ namespace create {
   class Serial : public std::enable_shared_from_this<Serial> {
 
     protected:
-      boost::asio::io_service io;
+      boost::asio::io_context io;
       boost::asio::signal_set signals;
       boost::asio::serial_port port;
 

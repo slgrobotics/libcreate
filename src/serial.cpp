@@ -119,7 +119,7 @@ namespace create {
 
     if (!startSensorStream()) return false;
 
-    io.reset();
+    io.restart();
 
     // Start continuously reading one byte at a time
     boost::asio::async_read(port,
@@ -130,8 +130,8 @@ namespace create {
                                       std::placeholders::_2));
 
     ioThread = std::thread(std::bind(
-        static_cast<std::size_t(boost::asio::io_service::*)(void)>(
-          &boost::asio::io_service::run), &io));
+        static_cast<std::size_t(boost::asio::io_context::*)(void)>(
+          &boost::asio::io_context::run), &io));
 
     // Wait for first complete read to finish
     std::unique_lock<std::mutex> lock(dataReadyMut);

@@ -1,3 +1,4 @@
+#include <chrono>
 #include <iostream>
 #include <memory>
 
@@ -31,7 +32,7 @@ namespace create {
     flushInput();
     send(requestPacket, 2);
     // Automatically resend request if no response is received
-    streamRecoveryTimer.expires_from_now(boost::posix_time::milliseconds(50));
+    streamRecoveryTimer.expires_after(std::chrono::milliseconds(50));
     streamRecoveryTimer.async_wait(
       std::bind(&SerialQuery::restartSensorStream, this, std::placeholders::_1));
   }

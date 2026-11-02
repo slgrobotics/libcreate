@@ -49,7 +49,7 @@ namespace create {
   class SerialQuery : public Serial {
 
     private:
-      boost::asio::deadline_timer streamRecoveryTimer;
+      boost::asio::steady_timer streamRecoveryTimer;
       uint8_t packetID;
       int8_t packetByte;
       uint16_t packetData;
